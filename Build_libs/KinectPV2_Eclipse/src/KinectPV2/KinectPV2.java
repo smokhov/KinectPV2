@@ -30,7 +30,7 @@ THE SOFTWARE.
  * @author Thomas Sanchez Lengeling
  *
  */
-public class KinectPV2 extends Device{
+public class KinectPV2 extends Device {
 	
 	public static PApplet parent;
 	
@@ -41,9 +41,21 @@ public class KinectPV2 extends Device{
 		parent.registerMethod("dispose", this);
 	}
 	
-	public void init(){
-		initDevice();
+	/**
+	 * @param deviceIndex
+	 * @since 0.7.7
+	 */
+	public void init(int deviceIndex) {
+		initDevice(deviceIndex);
 		runningKinect = true;
+	}
+
+	/**
+	 * Equivalent to init(0).
+	 * @see #init(int)
+	 */
+	public void init() {
+		init(0);
 	}
 
 	public void dispose() {
@@ -54,4 +66,3 @@ public class KinectPV2 extends Device{
 	}
 	
 }
-

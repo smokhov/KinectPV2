@@ -34,7 +34,7 @@ import processing.core.PImage;
 import processing.core.PVector;
 
 /**
- * Initilice Device
+ * Initialize Device
  *
  * @author Thomas Sanchez Lengeling
  *
@@ -78,6 +78,12 @@ public class Device implements Constants, FaceProperties, SkeletonProperties,
 
 	private FaceData[] faceData;
 
+	/**
+	 * Device index (for multiple sensors).
+	 * @since 0.7.7 
+	 */
+	protected int deviceIndex = 0;
+	
 	protected boolean runningKinect;
 	protected boolean stopDevice;
 
@@ -97,7 +103,7 @@ public class Device implements Constants, FaceProperties, SkeletonProperties,
 
 	private boolean startSensor;
 
-	private String Version = "0.7.6";
+	private String Version = "0.7.7";
 
 	/**
 	 * Start device
@@ -173,14 +179,25 @@ public class Device implements Constants, FaceProperties, SkeletonProperties,
 
 	}
 
+
 	protected void initDevice() {
-		startSensor = jniInit();
+		initDevice(0);
+	}
+
+	/**
+	 * @param deviceIndex device to initialize
+	 * @since 0.7.7
+	 */
+	protected void initDevice(int deviceIndex) {
+		this.deviceIndex = deviceIndex;
+
+		startSensor = jniInit(deviceIndex);
 		//String load = jniVersion();
 		//System.out.println("Version: " + load);
 		System.out.println("Version: " + Version);
 
 		if (startSensor == false) {
-			System.out.println("ERROR STARTING KINECT V2");
+			System.out.println("ERROR STARTING KINECT V2, device index: " + this.deviceIndex);
 			parent.exit();
 		}
 
@@ -721,6 +738,13 @@ public class Device implements Constants, FaceProperties, SkeletonProperties,
 	private native void 	jniDevice();
 
 	private native boolean 	jniInit();
+	
+	/**
+	 * @param deviceIndex
+	 * @return
+	 * @since 0.7.7
+	 */
+	private native boolean 	jniInit(int deviceIndex);
 
 	private native String 	jniVersion();
 
