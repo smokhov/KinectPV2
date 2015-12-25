@@ -333,7 +333,7 @@ public class Device implements Constants, FaceProperties, SkeletonProperties,
 	 * @param index
 	 * @return
 	 */
-	public ArrayList getBodyTrackUser() {
+	public ArrayList<PImage> getBodyTrackUser() {
 		ArrayList<PImage> listBodyTack = new ArrayList<PImage>(0);
 		int [] usersIds = jniGetBodyTrackIds();
 

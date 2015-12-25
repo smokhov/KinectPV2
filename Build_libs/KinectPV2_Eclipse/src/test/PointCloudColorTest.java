@@ -101,8 +101,11 @@ public class PointCloudColorTest extends PApplet {
 
 		  int vertData = kinect.WIDTHColor * kinect.HEIGHTColor;
 		  
-		  pgl.vertexAttribPointer(vertLoc, 3, PGL.FLOAT, false, 0, pointCloudBuffer);
-		  pgl.vertexAttribPointer(colorLoc, 3, PGL.FLOAT, false, 0, colorBuffer);
+		  // XXX: need fixing for new PGL API
+		  //pgl.vertexAttribPointer(vertLoc, 3, PGL.FLOAT, false, 0, pointCloudBuffer);
+		  pgl.vertexAttribPointer(vertLoc, 3, PGL.FLOAT, false, 0, 0);
+		  //pgl.vertexAttribPointer(colorLoc, 3, PGL.FLOAT, false, 0, colorBuffer);
+		  pgl.vertexAttribPointer(colorLoc, 3, PGL.FLOAT, false, 0, 0);
 
 		  pgl.drawArrays(PGL.POINTS, 0, vertData);
 

@@ -54,7 +54,8 @@ public class HDFaceSkeleton extends PApplet {
 		// DRAW COLOR IMAGE MAP
 		// image(kinect.getColorImage(), 0, 0);
 
-		HDFaceData[] hdFaceData = kinect.getHDFaceVertex();
+		//HDFaceData[] hdFaceData = kinect.getHDFaceVertex();
+		HDFaceData[] hdFaceData = kinect.getHDFaceVertex().toArray(new HDFaceData[0]);
 
 		stroke(0, 255, 0);
 		for (int j = 0; j < KinectPV2.BODY_COUNT; j++) {
@@ -69,7 +70,8 @@ public class HDFaceSkeleton extends PApplet {
 			endShape();
 		}
 
-		skeleton =  kinect.getSkeletonColorMap();
+		//skeleton =  kinect.getSkeletonColorMap();
+		skeleton = kinect.getSkeletonColorMap().toArray(new KSkeleton[0]);
 		  
 		// individual JOINTS
 		for (int i = 0; i < skeleton.length; i++) {

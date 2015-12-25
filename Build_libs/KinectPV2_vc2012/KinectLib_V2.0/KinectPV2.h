@@ -75,7 +75,8 @@ static const int HDFACEVERTEX = BODY_COUNT * 1347 * 2 + BODY_COUNT;
 static const int FACESIZE = BODY_COUNT * (36);
 
 //////////////////////////////////////////////////////////////////////////////////////////////
-namespace KinectPV2{
+namespace KinectPV2
+{
 	class Device : public DeviceOptions, DeviceActivators
 	{
 	private:
@@ -202,7 +203,7 @@ namespace KinectPV2{
 		void    cleanMemory();
 
 
-		bool	update();
+		bool	updateee();
 
 		void	enableMirror(bool enableMirror){ mirror = enableMirror; }
 

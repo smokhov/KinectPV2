@@ -1,9 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KinectLib_V2.0", "KinectLib_V2.0\KinectLib_V2.0.vcxproj", "{9CDC8431-EB3E-4BEB-8FC5-7BF505672B65}"
+# Visual Studio Express 2012 for Windows Desktop
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KinectPV2", "KinectLib_V2.0\KinectLib_V2.0.vcxproj", "{9CDC8431-EB3E-4BEB-8FC5-7BF505672B65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +13,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9CDC8431-EB3E-4BEB-8FC5-7BF505672B65}.Debug|Win32.ActiveCfg = Debug|Win32
 		{9CDC8431-EB3E-4BEB-8FC5-7BF505672B65}.Debug|Win32.Build.0 = Debug|Win32
+		{9CDC8431-EB3E-4BEB-8FC5-7BF505672B65}.Debug|Win32.Deploy.0 = Debug|Win32
 		{9CDC8431-EB3E-4BEB-8FC5-7BF505672B65}.Debug|x64.ActiveCfg = Debug|x64
 		{9CDC8431-EB3E-4BEB-8FC5-7BF505672B65}.Debug|x64.Build.0 = Debug|x64
 		{9CDC8431-EB3E-4BEB-8FC5-7BF505672B65}.Release|Win32.ActiveCfg = Release|Win32

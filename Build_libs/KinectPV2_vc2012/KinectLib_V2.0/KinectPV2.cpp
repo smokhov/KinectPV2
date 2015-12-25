@@ -606,9 +606,10 @@ namespace KinectPV2{
 
 	}
 
-	bool Device::update()
+	bool Device::updateee()
 	{
-
+		// Serguei; to keep compiler happy; December 2015
+		return true;
 	}
 
 	void Device::colorProcess()

@@ -38,7 +38,7 @@ public class PointCloudDepthTest extends PApplet {
 	int zval = 50;
 	float scaleVal = 260;
 
-	// Distance Threashold
+	// Distance Threshold
 	int maxD = 5000; // 4m
 	int minD = 50;  //  1m
 	//max 8000cm and min 5cm
