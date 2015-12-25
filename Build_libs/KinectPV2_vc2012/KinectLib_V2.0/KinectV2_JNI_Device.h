@@ -27,6 +27,14 @@ extern "C" {
 
 	/*
 	* Class:     KinectPV2_Device
+	* Method:    jniInitMultiple
+	* Signature: ()Lint
+	*/
+	JNIEXPORT jboolean JNICALL Java_KinectPV2_Device_jniInitMultiple
+		(JNIEnv *, jobject, jint);
+
+	/*
+	* Class:     KinectPV2_Device
 	* Method:    jniVersion
 	* Signature: ()Ljava/lang/String;
 	*/

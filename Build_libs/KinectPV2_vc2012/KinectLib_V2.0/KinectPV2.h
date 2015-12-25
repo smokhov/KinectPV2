@@ -174,6 +174,10 @@ namespace KinectPV2
 
 		IKinectSensor*				kSensor;
 
+		// for multiples Kinects, since 0.7.7
+        std::string     mSerialKinect;
+        int             mNumDevices;
+
 		CameraSpacePoint				*   mCamaraSpacePointDepth;
 		CameraSpacePoint				*   mCamaraSpacePointColor;
 		ColorSpacePoint					*	mColorSpacePoint;
@@ -196,14 +200,19 @@ namespace KinectPV2
 		Device(void);
 		~Device(void);
 
-		bool	init();
+		// aka openKinect(index)
+		bool	init(int index = 0);
+		// 0.7.7
+		std::string getSerial(int index = 0);
+		// 0.7.7
+		void enumerateDevices();
 
 		//STOP FUNCTIONS
 		void	disable();
 		void    cleanMemory();
 
 
-		bool	updateee();
+		bool	update();
 
 		void	enableMirror(bool enableMirror){ mirror = enableMirror; }
 

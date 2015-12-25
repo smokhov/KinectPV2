@@ -35,19 +35,21 @@ JNIEXPORT jboolean JNICALL Java_KinectPV2_Device_jniInit
 
 /*
 * Class:     KinectPV2_Device
-* Method:    jniInitMulti
-* Signature: ()Z
+* Method:    jniInitMultiple
+* Signature: ()Lint
+* SinceL:    0.7.7
 */
-JNIEXPORT jboolean JNICALL Java_KinectPV2_Device_jniInitMulti
-(JNIEnv * env, jobject obj)
+JNIEXPORT jboolean JNICALL Java_KinectPV2_Device_jniInitMultiple
+(JNIEnv * env, jobject obj, jint index)
 {
 	jclass cls = env->GetObjectClass(obj);
 	jfieldID fid = env->GetFieldID(cls, "ptr", "J");
 	KinectPV2::Device * kinect = (KinectPV2::Device *) env->GetLongField(obj, fid);
-	jboolean result = (jboolean)kinect->init();
+	jboolean result = (jboolean)kinect->init((int)index);
 	env->DeleteLocalRef(cls);
 	return result;
 }
+
 
 /*
 * Class:     KinectPV2_Device

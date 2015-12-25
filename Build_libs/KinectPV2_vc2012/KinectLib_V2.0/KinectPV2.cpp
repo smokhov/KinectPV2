@@ -33,6 +33,10 @@ namespace KinectPV2{
 	{
 		DeviceOptions();
 
+		// Multiple devices, since 0.7.7
+		mSerialKinect = "";
+        mNumDevices   = 0;
+
 		//COLOR
 		pixelsData = (uint8_t  *)malloc(frame_size_color * 4 * sizeof(uint8_t));
 		pixelsDataTemp = (uint8_t  *)malloc(frame_size_color * 4 * sizeof(uint8_t));
@@ -126,14 +130,37 @@ namespace KinectPV2{
 		skeletonMapType = 0;
 
 		numberUsers = 0;
+
+		// Since 0.7.7
+		enumerateDevices();
 	}
 
-	bool Device::init()
-	{
+	using namespace Microsoft.Kinect;
 
+
+	// Since 0.7.7
+	void Device::enumerateDevices()
+    {
+        mNumDevices = Microsoft:: KinectSensor.Sensors;
+
+		if(mNumDevices == 0)
+		{
+			std::cerr << "No Kinect Device Connected!" << std::endl;
+		}
+		else
+		{
+			std::cout <<mNumDevices<<" Device Connected!" << std::endl;
+		}
+    }
+
+	// index parameter added in 0.7.7 for multiple devices
+	bool Device::init(int index)
+	{
 		std::cout << "Creating Kinect object ..." << endl;
 
 		HRESULT hr = GetDefaultKinectSensor(&kSensor);
+
+		WindowsPreview.Kinect.
 
 		if (!kSensor || FAILED(hr))
 		{
@@ -141,10 +168,8 @@ namespace KinectPV2{
 			return false;
 		}
 
-
 		if (SUCCEEDED(hr))
 		{
-			
 			hr = kSensor->get_CoordinateMapper(&kCoordinateMapper);
 			
 			if (FAILED(hr))
@@ -164,10 +189,8 @@ namespace KinectPV2{
 
 			if (SUCCEEDED(hr))
 			{
-				
 				if (DeviceOptions::isInitializedColorFrame())
 				{
-					
 					IColorFrameSource* pColorFrameSource = NULL;
 
 					if (SUCCEEDED(hr))
@@ -606,7 +629,7 @@ namespace KinectPV2{
 
 	}
 
-	bool Device::updateee()
+	bool Device::update()
 	{
 		// Serguei; to keep compiler happy; December 2015
 		return true;

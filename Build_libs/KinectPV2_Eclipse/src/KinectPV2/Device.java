@@ -191,7 +191,8 @@ public class Device implements Constants, FaceProperties, SkeletonProperties,
 	protected void initDevice(int deviceIndex) {
 		this.deviceIndex = deviceIndex;
 
-		startSensor = jniInit(deviceIndex);
+		startSensor = jniInitMultiple(deviceIndex);
+		
 		//String load = jniVersion();
 		//System.out.println("Version: " + load);
 		System.out.println("Version: " + Version);
@@ -207,7 +208,7 @@ public class Device implements Constants, FaceProperties, SkeletonProperties,
 		}
 	}
 
-	public void closeDevice(){
+	public void closeDevice() {
 		runningKinect = false;
 		stopDevice();
 		cleanDevice();
@@ -744,7 +745,7 @@ public class Device implements Constants, FaceProperties, SkeletonProperties,
 	 * @return
 	 * @since 0.7.7
 	 */
-	private native boolean 	jniInit(int deviceIndex);
+	private native boolean 	jniInitMultiple(int deviceIndex);
 
 	private native String 	jniVersion();
 
